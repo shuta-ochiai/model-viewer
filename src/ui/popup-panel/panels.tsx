@@ -5,7 +5,7 @@ import React from 'react';
 
 import { extract } from '../../helpers';
 import { SetProperty, ObserverData } from '../../types';
-import { Slider, Toggle, Select, ColorPickerControl, ToggleColor, Numeric } from '../components';
+import { Detail, Slider, Toggle, Select, ColorPickerControl, ToggleColor, Numeric } from '../components';
 
 const rgbToArr = (rgb: { r: number, g: number, b: number }) => [rgb.r, rgb.g, rgb.b, 1];
 const arrToRgb = (arr: number[]) => {
@@ -282,6 +282,7 @@ class DebugPanel extends React.Component <{
                         value={props.debugData.stats}
                         setProperty={(value: boolean) => props.setProperty('debug.stats', value)}
                     />
+                    <Detail label='FPS' value={props.debugData.fps?.toFixed(2) || '0.00'} />
                 </Container>
             </div>
         );

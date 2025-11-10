@@ -71,6 +71,7 @@ export interface ObserverData {
     debug: {
         renderMode: 'default' | 'albedo' | 'opacity' | 'worldNormal' | 'specularity' | 'gloss' | 'metalness' | 'ao' | 'emission' | 'lighting' | 'uv0',
         stats: boolean,
+        fps: number,
         wireframe: boolean,
         wireframeColor: {
             r: number,
@@ -141,7 +142,8 @@ export interface ObserverData {
         viewportWidth: number,
         viewportHeight: number,
         xrSupported: boolean,
-        xrActive: boolean
+        xrActive: boolean,
+        fps: number
     },
     enableWebGPU: boolean,
     centerScene: boolean,

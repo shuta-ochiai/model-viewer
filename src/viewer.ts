@@ -1572,10 +1572,26 @@ class Viewer {
         )})`;
     }
 
+    fpsUpdateTimer: number = 0;  
+    fpsUpdateInterval: number = 0.1; // 0.1秒ごとに更新  
+    currentFps: number = 0;  
+
     update(deltaTime: number) {
         // update the orbit camera
         if (!this.xrMode?.active) {
             this.cameraControls.update(deltaTime);
+            if (deltaTime > 0) {  
+                this.currentFps = 1 / deltaTime;  
+                
+                // タイマーを更新  
+                this.fpsUpdateTimer += deltaTime;  
+                
+                // 一定間隔でのみobserverを更新  
+                if (this.fpsUpdateTimer >= this.fpsUpdateInterval) {  
+                    this.observer.set('debug.fps', this.currentFps);  
+                    this.fpsUpdateTimer = 0;  
+                } 
+            }  
         }
 
         const maxdiff = (a: Mat4, b: Mat4) => {

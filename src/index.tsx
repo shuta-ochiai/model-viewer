@@ -97,6 +97,7 @@ const observerData: ObserverData = {
     debug: {
         renderMode: 'default',
         stats: false,
+        fps: 0,
         wireframe: false,
         wireframeColor: { r: 0, g: 0, b: 0 },
         bounds: false,
@@ -159,7 +160,8 @@ const observerData: ObserverData = {
         viewportWidth: 0,
         viewportHeight: 0,
         xrSupported: false,
-        xrActive: false
+        xrActive: false,
+        fps: 0,
     },
     morphs: null,
     enableWebGPU: false,
