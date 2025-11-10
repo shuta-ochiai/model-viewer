@@ -1573,7 +1573,7 @@ class Viewer {
     }
 
     fpsUpdateTimer: number = 0;  
-    fpsUpdateInterval: number = 0.1; // 0.1秒ごとに更新  
+    fpsUpdateInterval: number = 0.5; // 0.5秒ごとに更新  
     currentFps: number = 0;  
 
     update(deltaTime: number) {
